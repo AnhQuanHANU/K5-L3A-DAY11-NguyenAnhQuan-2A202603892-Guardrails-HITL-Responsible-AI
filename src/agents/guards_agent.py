@@ -396,8 +396,9 @@ def create_red_agent_advance():
         return agent, runner
 
     if red_uses_gemini():
+        model_to_use = "gemini-3.5-flash-lite" if advance_model == "gemini-3.5-flash" else advance_model
         agent = llm_agent.LlmAgent(
-            model=advance_model,
+            model=model_to_use,
             name="red_agent_advance",
             instruction=RED_ADVANCE_INSTRUCTION,
         )

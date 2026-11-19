@@ -79,8 +79,9 @@ def create_red_agent_default():
         from google.adk.agents import llm_agent
         from google.adk import runners
 
+        model_to_use = "gemini-3.5-flash-lite" if soft == "gemini-3.5-flash" else soft
         agent = llm_agent.LlmAgent(
-            model=soft,
+            model=model_to_use,
             name="red_agent_default",
             instruction=RED_DEFAULT_INSTRUCTION,
         )
